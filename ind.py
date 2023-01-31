@@ -1,19 +1,9 @@
 #!/usr/bin/env python3 -*- coding: utf-8 -*-
 
-def fun(lst, flag=True, res=0, tmp=0):
-    for num in lst:
-        if not num:
-            if flag:
-                flag = False
-            else:
-                res += tmp
-                tmp = 0
 
-        if not flag:
-            tmp += num
-
-    return res
+def foo(*args):
+    start, end = [i for i in range(len(args)) if args[i] == 0]
+    return sum(args[start + 1: end])
 
 
-s = [0, 1, 5, 0, 4, 8, 5, 0, 6, 7, 0, 0, 8, 9, 0]
-print(fun(s))
+print(foo(1, 2, 3, 0, 5, 6, 7, 0, 8, 9))
